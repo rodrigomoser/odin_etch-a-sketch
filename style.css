@@ -3,6 +3,38 @@ body {
     justify-content: center;
 }
 
-.container {height: 900px;
-width: 900px;
-border: 1px solid black;}
+.mainContainer {height: 500px;
+width: 500px;
+border: 1px solid black;
+display: flex;
+flex-direction: column;
+
+}
+
+.gridBox {
+    border: 1px solid grey;
+    flex-grow: 1;
+}
+
+.gridRow {
+    display: flex;
+    border: 1px solid grey;
+    flex-grow: 1;
+}
+
+.gridCell {
+    flex-grow: 1;
+    border: 1px solid green;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-right: 32px;
+    flex-direction: column;
+    gap: 16px;
+}
+
+input {
+    align-self: center;
+}

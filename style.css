@@ -1,14 +1,14 @@
 body {
     display: flex;
     justify-content: center;
-}
+ }
 
-.mainContainer {height: 500px;
-width: 500px;
-border: 1px solid black;
-display: flex;
-flex-direction: column;
-
+.mainContainer {
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 .gridBox {
@@ -18,13 +18,18 @@ flex-direction: column;
 
 .gridRow {
     display: flex;
-    border: 1px solid grey;
+    border-bottom: 1px solid rgb(180, 180, 180);
     flex-grow: 1;
 }
 
 .gridCell {
     flex-grow: 1;
-    border: 1px solid green;
+    border-right: 1px solid rgb(180, 180, 180);
+}
+
+
+.gridCell:hover{
+    background-color: black; 
 }
 
 .menu {

@@ -2,6 +2,9 @@ const mainContainer = document.querySelector(".mainContainer")
 let isMouseDown = false;
 document.addEventListener("mousedown", function(){isMouseDown = true;});
 document.addEventListener("mouseup", function(){isMouseDown = false;});
+mainContainer.addEventListener("mouseleave", function(){isMouseDown = false;});
+mainContainer.addEventListener("dragstart", function(e){ e.preventDefault(); });
+
 
 function getGridSize (){
     const inputElement = document.querySelector('#gridSizeSelector');
@@ -24,6 +27,7 @@ function createGrid (gridSize) {
         for (let i = 0; i < gridSize; i++){
         const gridCell = document.createElement('div');
         gridCell.className = 'gridCell';
+        gridCell.dataset.opacity = "0.0";
         gridRow.appendChild(gridCell);
         gridCell.addEventListener("mouseover", paintCell);
         }
@@ -36,7 +40,11 @@ function initialGrid(){
 
 function paintCell(evt){
     if (isMouseDown === true){
-    evt.target.style.backgroundColor = 'black';}
+    let opacity = parseFloat(evt.target.dataset.opacity);
+    opacity = Math.min(opacity + 0.1, 1.0);
+    evt.target.dataset.opacity = opacity;
+    evt.target.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+    }
 }
 
 function clearGrid (){
